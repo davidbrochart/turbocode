@@ -1,0 +1,13 @@
+rm -f ./doc/* ./src/myhdl/* ./src/vhdl/* turbo.tar.gz
+cp ../src/myhdl/*.py ./src/myhdl/
+cp ../src/vhdl/*.vhd ./src/vhdl/
+#cp ../src/vhdl/compile ./src/vhdl/
+#cp ../src/vhdl/*.py ./src/vhdl/
+#cp ../src/vhdl/turboDecWrapper.v ./src/vhdl/
+#cp ../src/vhdl/*.do ./src/vhdl/
+cp ../doc/LICENSE.txt ./doc/
+cp ../doc/README.txt ./doc/
+cp ../doc/turbo.pdf ./doc/
+#cp ../doc/turbo.sxw ./doc/
+gtar cf turbo.tar .
+gzip turbo.tar
