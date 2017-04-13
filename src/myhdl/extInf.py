@@ -64,8 +64,8 @@ def extInf(llr0, llr1, llr2, llr3, zin, a, b, zout, r = 5, n = 4, q = 8):
     @instance
     def extInfLogic():
         while 1:
-            a_plus_b = (a.val + b.val) / 2
-            a_min_b = (a.val - b.val) / 2
+            a_plus_b = (a.val + b.val) // 2
+            a_min_b = (a.val - b.val) // 2
             tmp[0] = llr0.val - a_plus_b - zin[0].val
             tmp[1] = llr1.val - a_min_b  - zin[1].val
             tmp[2] = llr2.val + a_min_b  - zin[2].val

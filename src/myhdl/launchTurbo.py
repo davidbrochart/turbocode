@@ -60,20 +60,20 @@ inter   = args['-int']
 dela    = args['-delay']
 iter    = args['-iter']
 if help == 'on':
-    print "python launchTurbo.py"
-    print "    [-help]        : prints this message"
-    print "    [-iter val]    : number of iterations for the turbo decoding (default: 5)"
-    print "    [-snr val]     : specifies the signal-to-noise ratio in dB (default: 5.1 dB)"
-    print "    [-vcd on/off]  : turns on/off the signal logging into a VCD file (default: off)"
-    print "    [-time val]    : time to run the simulation (default: forever)"
-    print "    [-sig val]     : number of bits for the quantization of the signals - a, b, y1, y2 (default: 4)"
-    print "    [-ext val]     : number of bits for the coding of the extrinsic information (default: 5)"
-    print "    [-trel1 val]   : first trellis' length (default: 24)"
-    print "    [-trel2 val]   : second trellis' length (default: 12)"
-    print "    [-dist val]    : number of bits for the coding of the accumulated distances (default: 9)"
-    print "    [-int val]     : interleaver frame size in bit couples - valid values are 48, 64, 212, 220, 228, 424, 432, 440, 848, 856, 864, 752 (default: 64)"
-    print "    [-delay val]   : additional delay through the noiser - 0 means the noiser adds 1 clock cycle (default: 0)"
-    print "    [-rate val]    : code rate (e.g. 13 for rate 1/3) - valid values are 13, 25, 12, 23, 34, 45, 67 (default is 12)"
+    print("python launchTurbo.py")
+    print("    [-help]        : prints this message")
+    print("    [-iter val]    : number of iterations for the turbo decoding (default: 7)")
+    print("    [-snr val]     : specifies the signal-to-noise ratio in dB (default: 7.1 dB)")
+    print("    [-vcd on/off]  : turns on/off the signal logging into a VCD file (default: off)")
+    print("    [-time val]    : time to run the simulation (default: forever)")
+    print("    [-sig val]     : number of bits for the quantization of the signals - a, b, y3, y2 (default: 4)")
+    print("    [-ext val]     : number of bits for the coding of the extrinsic information (default: 7)")
+    print("    [-trel1 val]   : first trellis' length (default: 26)")
+    print("    [-trel2 val]   : second trellis' length (default: 14)")
+    print("    [-dist val]    : number of bits for the coding of the accumulated distances (default: 11)")
+    print("    [-int val]     : interleaver frame size in bit couples - valid values are 50, 64, 212, 220, 228, 424, 432, 440, 848, 856, 864, 752 (default: 64)")
+    print("    [-delay val]   : additional delay through the noiser - 2 means the noiser adds 1 clock cycle (default: 0)")
+    print("    [-rate val]    : code rate (e.g. 13 for rate 3/3) - valid values are 13, 25, 12, 23, 34, 45, 67 (default is 12)")
 else:
     if rate != None:
         rate = int(rate)    # code rate (e.g. 13 for rate 1/3)
@@ -119,22 +119,22 @@ else:
     else:
         time = None
     mu = 2**(n - 1) # mean value of the noise distribution (additive noise)
-    print "Parameters of the simulation:"
-    print "-----------------------------"
-    print
-    print it, "iterations for the turbo decoding"
-    print n, "bits for the quantization of the signals - a, b, y1, y2"
-    print r, "bits for the coding of the extrinsic information"
-    print "The length of the first trellis is", l
-    print "The length of the second trellis is", m
-    print q, "bits for the coding of the accumulated distances"
-    print "The interleaver has a frame size of", p, "bit couples"
-    print "There is an additional delay through the noiser of", (d - 1), "clock cycle(s) - 0 means the noiser adds 2 clock cycles"
-    print "The signal-to-noise ratio is", snr, "dB"
-    print "The code rate is", str(rate)[0], "/", str(rate)[1]
-    print
-    print
-    print
+    print("Parameters of the simulation:")
+    print("-----------------------------")
+    print()
+    print(it, "iterations for the turbo decoding")
+    print(n, "bits for the quantization of the signals - a, b, y1, y2")
+    print(r, "bits for the coding of the extrinsic information")
+    print("The length of the first trellis is", l)
+    print("The length of the second trellis is", m)
+    print(q, "bits for the coding of the accumulated distances")
+    print("The interleaver has a frame size of", p, "bit couples")
+    print("There is an additional delay through the noiser of", (d - 1), "clock cycle(s) - 0 means the noiser adds 2 clock cycles")
+    print("The signal-to-noise ratio is", snr, "dB")
+    print("The code rate is", str(rate)[0], "/", str(rate)[1])
+    print()
+    print()
+    print()
     resFile = [None for i in range(it + 1)]
     for i in range(it + 1):
         resFile[i] = open('./turbo' + str(i) + '.txt', 'w')

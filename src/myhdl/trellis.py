@@ -150,7 +150,7 @@ def trellis1(clk, rst, selState, selTrans, selStateL2, selStateL1, stateL1, selT
                     if ref != tmp:
                         diff = 1
                 if diff == 1:
-                    print "WARNING: all paths don't arrive at same state at end of first trellis (you should think about increasing its length)"
+                    print("WARNING: all paths don't arrive at same state at end of first trellis (you should think about increasing its length)")
     return trellis1Logic
 
 def trellis2(clk, rst, selState, state, selTrans, weight, llr0, llr1, llr2, llr3, a, b, m = 10, q = 8):
@@ -298,7 +298,7 @@ def trellis2(clk, rst, selState, state, selTrans, weight, llr0, llr1, llr2, llr3
                 elif minTmp == [1, 1, 1]:
                     ind[j] = [2, 1, 0]
                 else:
-                    print "ERROR: Configuration does not exist", minTmp
+                    print("ERROR: Configuration does not exist", minTmp)
             for i in range(3):
                 tmp[3]  = revWeightTmp[int(notZero[0][int(ind[0][i])])][0]
                 tmp4    = revWeightTmp[int(notZero[1][int(ind[1][i])])][1] + (2 ** (q - 4))

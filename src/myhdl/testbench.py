@@ -154,8 +154,8 @@ def monitor(clk, rst, *args):
     def monitorLogic():
         if rst.val != 0:
             for arg in args:
-                print "%3d" % int(arg),
-            print
+                print("%3d" % int(arg)),
+            print()
     return monitorLogic
 
 def sorter(clk, rst, *args):

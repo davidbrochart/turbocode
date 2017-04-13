@@ -81,7 +81,7 @@ def distance(partDist, z, dist, n = 4):
     """
     @always_comb
     def distanceLogic():
-        dist.next = (4 * (2 ** (n - 1) - 1) + partDist.val) / 2 + z.val
+        dist.next = (4 * (2 ** (n - 1) - 1) + partDist.val) // 2 + z.val
     return distanceLogic
 
 def distances(a, b, y1, y2, z, distance16, n = 4):
@@ -102,7 +102,7 @@ def distances(a, b, y1, y2, z, distance16, n = 4):
     for i in range(8):
         opposite_i[i] = opposite(partDist[i], partDist[15 - i])
     for i in range(16):
-        distance_i[i] = distance(partDist[i], z[i / 4], distance16[i], n)
+        distance_i[i] = distance(partDist[i], z[i // 4], distance16[i], n)
 
     return partDistance_i, opposite_i, distance_i
 
@@ -153,7 +153,7 @@ def accDist(clk, rst, accDistReg, dist, accDistNew, q = 8):
     accDistRegDelta     = [Signal(intbv(0, 0, 2**q)) for i in range(8)]
     distIndex   = [0, 7, 11, 12,   0, 7, 11, 12,   2, 5, 9, 14,   2, 5, 9, 14,    3, 4, 8, 15,   3, 4, 8, 15,   1, 6, 10, 13,   1, 6, 10, 13]
     for i in range(32):
-        adder_i[i] = adder(accDistOld[i/4], dist[distIndex[i]], accDistNew[i])
+        adder_i[i] = adder(accDistOld[i // 4], dist[distIndex[i]], accDistNew[i])
     reduction_i0 = reduction(accDistReg, accDistRed, q)
     for i in range(8):
         register_i[i] = register(clk, rst, accDistRed[i], accDistOld[i])

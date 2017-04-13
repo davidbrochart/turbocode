@@ -126,7 +126,7 @@ def interleaver(clk, rst, d, q, frSize = 48, delay = 0, minVal = 0, maxVal = 2, 
         p2 = 224
         p3 = 600
     else:
-        print "ERROR: interleaver does not have a valid DVB-RCS frame size!"
+        print("ERROR: interleaver does not have a valid DVB-RCS frame size!")
     @always(clk.posedge, rst.negedge)
     def interleaverLogic():
         if rst.val == 0:
@@ -148,11 +148,11 @@ def interleaver(clk, rst, d, q, frSize = 48, delay = 0, minVal = 0, maxVal = 2, 
                 if j.val[2:0] == 0:
                     p = 0
                 elif j.val[2:0] == 1:
-                    p = frSize / 2 + p1
+                    p = frSize // 2 + p1
                 elif j.val[2:0] == 2:
                     p = p2
                 else:   # if j.val[2:0] == 3:
-                    p = frSize / 2 + p3
+                    p = frSize // 2 + p3
                 iTmp1 = iTmp.val + p0
                 if iTmp1 >= frSize:
                     iTmp2 = iTmp1 - frSize

@@ -80,7 +80,7 @@ def punctSel(clk, rst, y1Sel, y2Sel, rate = 13):
     elif rate == 67:
         pattern = [[1, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0]]
     else:
-        print "ERROR: the code rate you specified is not valid!"
+        print("ERROR: the code rate you specified is not valid!")
     cntMax = len(pattern[0])
     cnt = Signal(intbv(0, 0, cntMax))
     @always(clk.posedge, rst.negedge)
